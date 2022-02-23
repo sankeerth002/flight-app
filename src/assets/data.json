@@ -1,0 +1,29 @@
+{
+    "schedule": [
+      { "flightNumber": "201", "airline": "AirUSA",
+         "fromPlace": "KOL","toPlace": "DEL",
+         "startDateTime": "12:30","endDateTime": "14:00",
+         "instrumentUsed": "A320" , "businessClassSeats": "20",
+         "nonBusinessClassSeats": "35","ticketCost":"3200",
+         "rows": "12" , "mealsType": "VEG"}
+    ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" }
+  }

@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>List of Search Results</h1>
+    <table class="table table-bordered ">
+      <tr>
+        <th>Flight Number</th>
+        <th>Airline</th>
+        <th>From </th>
+        <th>To </th>
+        <th>Date </th>
+        <th>Price</th>
+        <th width="220px">Action</th>
+      </tr>
+       <tr *ngFor="let flight  flight">
+          <td>{{ flight.flightnumber }}</td>
+          <td>{{ flight.airline }}</td>
+          <td>{{ flight.fromplace }}</td>
+          <td>{{ flight.toPlace }}</td>
+          <td> 
+      <tr>
+        
+        
+      </tr> 
+    </table>
+  </div>
+

@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>List of Flights Available</h1>
+    <table class="table table-bordered ">
+      <tr>
+        <th>Flight Number</th>
+        <th>Airline</th>
+        <th>From </th>
+        <th>To </th>
+        <th>Date </th>
+        <th>Price</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let flight  flight">
+          <td>{{ flight.flightnumber }}</td>
+          <td>{{ flight.airline }}</td>
+          <td>{{ flight.fromplace }}</td>
+          <td>{{ flight.toPlace }}</td>
+          <td>
+      <tr>
+        <td>A120</td>
+        <td>INDIGO</td>
+        <td>HYD</td>
+        <td>DEL</td>
+        <td>2</td>
+        <td>8000</td>
+  
+        
+  
+         
+          <a href="#" routerLink="../bookticket/" class="btn btn-info">Book</a>
+        </td>
+      </tr>
+      <tr>
+        <td>A120</td>
+        <td>INDIGO</td>
+        <td>HYD</td>
+        <td>DEL</td>
+        <td>2</td>
+        <td>8000</td>
+        <a href="#" routerLink="../bookticket/" class="btn btn-info">Book</a>&nbsp;&nbsp;&nbsp;
+        <a href="#" routerLink="../bookticket/" class="btn btn-danger">Cancel</a>
+        
+    </table>
+  </div>
+

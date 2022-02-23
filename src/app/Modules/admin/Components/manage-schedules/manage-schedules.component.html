@@ -1,0 +1,210 @@
+<!-- <h1>Airlines Schedules</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>flightNumber</th>
+            <th>airline</th>
+            <th>fromPlace</th>
+            <th>startDateTime</th>
+            <th>endDateTime</th>
+            <th>instrumentUsed</th>
+            <th>businessClassSeats</th>
+            <th>nonBusinessClassSeats</th>
+            <th>ticketCost</th>
+            <th>rows</th>
+            <th>mealsType</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let schedule of schedules">
+            <td>{{schedule.flightNumber}}</td>
+            <td>{{schedule.airline}}</td>
+            <td>{{schedule.fromPlace}}</td>
+            <td>{{schedule.toPlace}}</td>
+            <td>{{schedule.startDateTime}}</td>
+            <td>{{schedule.endDateTime}}</td>
+            <td>{{schedule.instrumentUsed}}</td>
+            <td>{{schedule.businessClassSeats}}</td>
+            <td>{{schedule.nonBusinessClassSeats}}</td>
+            <td>{{schedule.ticketCost}}</td>
+            <td>{{schedule.rows}}</td>
+            <td>{{schedule.mealsType}}</td>
+        </tr>
+    </tbody>
+</table> -->
+
+<!-- <p>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p> -->
+ 
+  <form (submit)="onSubmit()" #scheduleForm="ngForm">
+      <mat-form-field>
+          <input matInput placeholder="flightNumber" name="flightNumber" 
+          required [(ngModel)]="scheduleData.flightNumber">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="airline" name="airline" 
+        required [(ngModel)]="scheduleData.airline">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="fromPlace" name="fromPlace" 
+        required [(ngModel)]="scheduleData.fromPlace">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="toPlace" name="toPlace" 
+        required [(ngModel)]="scheduleData.toPlace">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="startDateTime" name="startDateTime" 
+        required [(ngModel)]="scheduleData.startDateTime">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="endDateTime" name="endDateTime" 
+        required [(ngModel)]="scheduleData.endDateTime">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="instrumentUsed" name="instrumentUsed" 
+        required [(ngModel)]="scheduleData.instrumentUsed">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="businessClassSeats" name="businessClassSeats" 
+        required [(ngModel)]="scheduleData.businessClassSeats">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="nonBusinessClassSeats" name="nonBusinessClassSeats" 
+        required [(ngModel)]="scheduleData.nonBusinessClassSeats">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="ticketCost" name="ticketCost" 
+        required [(ngModel)]="scheduleData.ticketCost">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="rows" name="rows" 
+        required [(ngModel)]="scheduleData.rows">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="mealsType" name="mealsType" 
+        required [(ngModel)]="scheduleData.mealsType">
+    </mat-form-field>
+
+    <ng-container *ngIf="isEditMode; else elseTemplate" >
+        <button mat-raised-button color="primary">Update</button>&nbsp;
+        <a mat-raised-button color="warn" (click)="cancelEdit()">Cancel</a>
+    </ng-container>&nbsp;&nbsp;
+    <ng-template #elseTemplate>
+        <button mat-raised-button color="primary">Add </button>
+    </ng-template>
+
+  </form>
+  
+  <div class="table-wrapper">
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"
+  style="width: 100%;">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+      
+  
+    <!-- flightNumber Column -->
+    <ng-container matColumnDef="flightNumber">
+      <th mat-header-cell *matHeaderCellDef> #flightNumber. </th>
+      <td mat-cell *matCellDef="let element"> {{element.flightNumber}} </td>
+    </ng-container>
+  
+    <!-- airline Column -->
+    <ng-container matColumnDef="airline">
+      <th mat-header-cell *matHeaderCellDef> airline </th>
+      <td mat-cell *matCellDef="let element"> {{element.airline}} </td>
+    </ng-container>
+  
+    <!-- fromPlace Column -->
+    <ng-container matColumnDef="fromPlace">
+      <th mat-header-cell *matHeaderCellDef> fromPlace </th>
+      <td mat-cell *matCellDef="let element"> {{element.fromPlace}} </td>
+    </ng-container>
+  
+    <!-- toPlace Column -->
+    <ng-container matColumnDef="toPlace">
+      <th mat-header-cell *matHeaderCellDef> toPlace </th>
+      <td mat-cell *matCellDef="let element"> {{element.toPlace}} </td>
+    </ng-container>
+  
+    <!-- startDateTime Column -->
+    <ng-container matColumnDef="startDateTime">
+        <th mat-header-cell *matHeaderCellDef> startDateTime </th>
+        <td mat-cell *matCellDef="let element"> {{element.startDateTime}} </td>
+      </ng-container>
+
+    <!-- endDateTime Column -->
+    <ng-container matColumnDef="endDateTime">
+        <th mat-header-cell *matHeaderCellDef> endDateTime </th>
+        <td mat-cell *matCellDef="let element"> {{element.endDateTime}} </td>
+      </ng-container> 
+
+    <!-- instrumentUsed Column -->
+    <ng-container matColumnDef="instrumentUsed">
+        <th mat-header-cell *matHeaderCellDef> instrumentUsed </th>
+        <td mat-cell *matCellDef="let element"> {{element.instrumentUsed}} </td>
+      </ng-container>
+
+      <!-- businessClassSeats Column -->
+    <ng-container matColumnDef="businessClassSeats">
+        <th mat-header-cell *matHeaderCellDef> businessClassSeats </th>
+        <td mat-cell *matCellDef="let element"> {{element.businessClassSeats}} </td>
+      </ng-container>
+
+      <!-- nonBusinessClassSeats Column -->
+    <ng-container matColumnDef="nonBusinessClassSeats">
+        <th mat-header-cell *matHeaderCellDef> nonBusinessClassSeats </th>
+        <td mat-cell *matCellDef="let element"> {{element.nonBusinessClassSeats}} </td>
+      </ng-container>
+
+      <!-- ticketCost Column -->
+    <ng-container matColumnDef="ticketCost">
+        <th mat-header-cell *matHeaderCellDef> ticketCost </th>
+        <td mat-cell *matCellDef="let element"> {{element.ticketCost}} </td>
+      </ng-container>
+
+      <!-- rows Column -->
+    <ng-container matColumnDef="rows">
+        <th mat-header-cell *matHeaderCellDef> rows </th>
+        <td mat-cell *matCellDef="let element"> {{element.rows}} </td>
+      </ng-container>
+
+      <!-- mealsType Column -->
+    <ng-container matColumnDef="mealsType">
+        <th mat-header-cell *matHeaderCellDef> mealsType </th>
+        <td mat-cell *matCellDef="let element"> {{element.mealsType}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+         <th mat-header-cell *matHeaderCellDef> Actions </th>
+         <td mat-cell *matCellDef="let element">
+         <a mat-raised-button color="accent" (click)="editItem(element)">Edit</a>
+         <a mat-raised-button color="warn" (click)="deleteItem(element.flightNumber)">Delete</a> 
+        </td>
+      </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{
+        'editable-row': scheduleData.flightNumber === row.flightNumber}"></tr>
+  </table>
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5,10,15]" showFirstLastButtons></mat-paginator>
+  
+  </div>
+  
